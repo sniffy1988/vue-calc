@@ -13,7 +13,7 @@
 
 <script>
 import ProductAdder from '~/components/ProductAdder.vue'
-import ProductTable from '~/components/productTable.vue'
+import ProductTable from '~/components/ProductTable.vue'
 
 export default {
   name: 'IndexPage',
