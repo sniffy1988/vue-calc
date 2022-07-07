@@ -22,7 +22,7 @@
           </v-data-table>
         </v-card-text>
         <v-card-actions class="px-4 pb-4">
-          <v-btn v-if="selected.length">Delete</v-btn>
+          <v-btn v-if="selected.length" @click="deleteSelected">Delete</v-btn>
           <v-spacer></v-spacer>
           <v-text-field
             name="Total"
@@ -80,6 +80,19 @@ export default {
         this.selected = []
       },
       deep: true,
+    },
+  },
+  methods: {
+    async deleteSelected() {
+      const message = await this.$store.dispatch(
+        'deleteProducts',
+        this.selected
+      )
+      this.$toast.success(message)
+
+      setTimeout(() => {
+        this.$toast.clear()
+      }, 2000)
     },
   },
 }

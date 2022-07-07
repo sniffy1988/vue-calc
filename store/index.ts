@@ -45,6 +45,17 @@ export const mutations: MutationTree<RootState> = {
   ADD_PRODUCT: (state, product: Product) => {
     state.products.push(product)
   },
+  DELETE_PRODUCTS: (state, products: Products) => {
+    products.forEach((product) => {
+      const index = state.products.findIndex((p) => p.name === product.name)
+      if (index !== -1) {
+        state.products = [
+          ...state.products.slice(0, index),
+          ...state.products.slice(index + 1),
+        ]
+      }
+    })
+  },
 }
 
 export const actions: ActionTree<RootState, RootState> = {
@@ -77,6 +88,12 @@ export const actions: ActionTree<RootState, RootState> = {
         commit('ADD_PRODUCT', product)
         resolve('Product added')
       }
+    })
+  },
+  deleteProducts({ commit }, products: Products): Promise<any> {
+    return new Promise((resolve) => {
+      commit('DELETE_PRODUCTS', products)
+      resolve('Products deleted')
     })
   },
 }
