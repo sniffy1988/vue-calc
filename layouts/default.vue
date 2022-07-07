@@ -20,9 +20,12 @@
 export default {
   name: 'DefaultLayout',
   data() {
-    return {
-      title: 'Vue Invoice Calc',
-    }
+    return {}
+  },
+  computed: {
+    title() {
+      return this.$t('app.title')
+    },
   },
 }
 </script>

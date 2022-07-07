@@ -1,4 +1,5 @@
 import colors from 'vuetify/es5/util/colors'
+import messages from './i18n'
 
 export default {
   // Disable server-side rendering: https://go.nuxtjs.dev/ssr-mode
@@ -41,6 +42,7 @@ export default {
     // https://go.nuxtjs.dev/vuetify
     '@nuxtjs/vuetify',
     '@nuxtjs/toast',
+    '@nuxtjs/i18n',
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
@@ -67,7 +69,20 @@ export default {
   toast: {
     position: 'top-right',
   },
-
+  i18n: {
+    strategy: 'no_prefix',
+    locales: [
+      {
+        code: 'en',
+        name: 'English',
+      },
+    ],
+    defaultLocale: 'en',
+    vueI18n: {
+      fallbackLocale: 'en',
+      messages,
+    },
+  },
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {},
 }

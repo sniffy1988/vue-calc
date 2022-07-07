@@ -6,14 +6,14 @@
   >
     <v-text-field
       v-model="name"
-      placeholder="Product Name"
+      :placeholder="$t('app.product_name')"
       filled
       class="mr-3"
       :rules="[notEmpty]"
     />
     <v-text-field
       v-model.number="price"
-      placeholder="Price"
+      :placeholder="$t('app.product_price')"
       class="mr-3"
       filled
       :rules="[notEmpty, priceIsValid]"
@@ -22,13 +22,13 @@
     />
     <v-text-field
       v-model.number="qty"
-      placeholder="Qty"
+      :placeholder="$t('app.product_quantity')"
       class="mr-3"
       filled
       :rules="[notEmpty, qtyIsValid]"
       type="number"
     />
-    <v-btn class="mt-3" type="sumbit">Add</v-btn>
+    <v-btn class="mt-3" type="sumbit">{{ $t('app.add') }}</v-btn>
   </v-form>
 </template>
 
