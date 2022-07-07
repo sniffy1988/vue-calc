@@ -40,6 +40,7 @@ export default {
     '@nuxtjs/stylelint-module',
     // https://go.nuxtjs.dev/vuetify
     '@nuxtjs/vuetify',
+    '@nuxtjs/toast',
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
@@ -62,6 +63,9 @@ export default {
         },
       },
     },
+  },
+  toast: {
+    position: 'top-right',
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
